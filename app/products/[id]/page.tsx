@@ -54,35 +54,32 @@ export default function ProductDetailPage() {
   const [bgY, setBgY] = useState(0);
 
   const zoomScale = 2.5; // 2.5x zoom
-const imgRef = useRef<HTMLImageElement | null>(null);
+  const imgRef = useRef<HTMLImageElement | null>(null);
 
-const [imgSize, setImgSize] = useState({ width: 0, height: 0 });
+  const [imgSize, setImgSize] = useState({ width: 0, height: 0 });
   const [showLens, setShowLens] = useState(false);
   const [lensPos, setLensPos] = useState({ x: 0, y: 0 });
   const [bgPos, setBgPos] = useState({ x: 0, y: 0 });
 
+  const zoom = 2.5;
+  const lensSize = 120;
 
-const zoom = 2.5;
-const lensSize = 120;
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
 
-const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-  const rect = e.currentTarget.getBoundingClientRect();
+    let x = e.clientX - rect.left;
+    let y = e.clientY - rect.top;
 
-  let x = e.clientX - rect.left;
-  let y = e.clientY - rect.top;
+    x = Math.max(lensSize / 2, Math.min(x, rect.width - lensSize / 2));
+    y = Math.max(lensSize / 2, Math.min(y, rect.height - lensSize / 2));
 
-  x = Math.max(lensSize / 2, Math.min(x, rect.width - lensSize / 2));
-  y = Math.max(lensSize / 2, Math.min(y, rect.height - lensSize / 2));
+    const bgX = (x / rect.width) * imgSize.width * zoom;
+    const bgY = (y / rect.height) * imgSize.height * zoom;
 
-  const bgX = (x / rect.width) * imgSize.width * zoom;
-  const bgY = (y / rect.height) * imgSize.height * zoom;
-
-  setLensPos({ x, y });
-  setBgPos({ x: bgX, y: bgY });
-  setShowLens(true);
-};
-
-
+    setLensPos({ x, y });
+    setBgPos({ x: bgX, y: bgY });
+    setShowLens(true);
+  };
 
   return (
     <main className="bg-white">
@@ -173,7 +170,7 @@ const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
         </div>
 
         {/* PRODUCT INFO */}
-        <div >
+        <div>
           <h1 className="text-3xl font-semibold text-gray-900">
             {product.name}
           </h1>
@@ -192,45 +189,36 @@ const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
             ${product.price.toFixed(2)}
           </p>
 
-          {/* Size */}
-          <div className="mt-6 ">
-            <p className="font-medium mb-2 text-gray-600">Size</p>
-            <div className="flex gap-3 ">
-              {["100g", "250g", "500g"].map((size) => (
-                <button
-                  key={size}
-                  className=" px-4 py-2 text-gray-600 border border-gray-400 rounded-lg rounded-lg hover:border-green-600"
-                >
-                  {size}
-                </button>
-              ))}
-            </div>
+          <div className="mt-4">
+            <p className="font-semibold mb-1 text-gray-600">Description</p>
+            <p className="text-gray-600">
+              This product is designed with premium quality materials to ensure
+              durability, comfort, and long-lasting performance. Ideal for daily
+              use and special occasions.
+            </p>
           </div>
-
-          {/* Quantity */}
-          <div className="flex items-center gap-4 mt-6 ">
-            <div className="flex items-center  text-gray-600 border border-gray-400 rounded-lg">
-              <button
-                onClick={() => setQty(Math.max(1, qty - 1))}
-                className="px-4 py-2"
-              >
-                −
-              </button>
-              <span className="px-4 text-gray-600 ">{qty}</span>
-              <button onClick={() => setQty(qty + 1)} className="px-4 py-2">
-                +
-              </button>
-            </div>
+          <div className="mt-2">
+            <p className="font-semibold mb-1 text-gray-600">Specification</p>
+            <ul className="list-disc pl-5 space-y-2 text-gray-600 text-sm">
+              <li>Material: 100% Cotton</li>
+              <li>Color: Black</li>
+              <li>Fit: Regular</li>
+              <li>Weight: 350g</li>
+              <li>Warranty: 1 Year</li>
+            </ul>
           </div>
 
           {/* CTA */}
           <div className="flex gap-4 mt-8">
             <button className="flex-1 bg-green-600 text-white py-3 rounded-lg hover:bg-green-700">
-              Add to Cart
+              Call for Enquiry
             </button>
+            {/*
+            
             <button className="flex-1 border border-green-600 text-green-600 py-3 rounded-lg hover:bg-green-50">
               Buy Now
             </button>
+              */}
           </div>
         </div>
       </section>

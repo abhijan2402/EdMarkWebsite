@@ -115,7 +115,7 @@ export default function ProductsPage() {
                   </p>
 
                   <button className="mt-4 w-full py-2.5 rounded-xl bg-green-600 text-white font-medium hover:bg-green-700 transition">
-                    Buy Now
+                    Call for Enquiry
                   </button>
                 </Link>
               ))}
