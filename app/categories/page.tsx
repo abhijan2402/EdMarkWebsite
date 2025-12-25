@@ -9,34 +9,37 @@ export default function ProductsPage() {
   const products = [
     {
       id: 1,
-      name: "Herbal Protein Blend",
-      price: 29.99,
+      name: "Classic Cafe Black",
+      price: 18,
+      image: "/p1.jfif",
+      desc: "Starting Your Day with Vitality - Health Fit Classic Cafe Black.",
       category: "Fitness Supplements",
-      image: "/im.jpg",
     },
     {
       id: 2,
-      name: "Organic Immunity Boost",
-      price: 19.99,
-      category: "Herbal Nutrition",
-      image: "/hero.jpg",
+      name: "EDLIFE Chlorophyllin",
+      price: 75,
+      image: "/p2.jfif",
+      desc: "Introducing EDLIFE Chlorophyllin 240mg Capsule.",
+      category: "Fitness Supplements",
     },
     {
       id: 3,
-      name: "Daily Wellness Mix",
-      price: 14.99,
-      category: "Wellness Foods",
-      image: "/im.jpg",
+      name: "Aleo vera gel",
+      price: 699,
+      image: "/p3.jfif",
+      desc: "Aloe 10,000 & Probiotics Veg Capsules.",
+      category: "Herbal Nutrition",
     },
     {
       id: 4,
-      name: "Plant-Based Energy Powder",
-      price: 24.99,
-      category: "Fitness Supplements",
-      image: "/hero.jpg",
+      name: "Ensure",
+      price: 1099,
+      image: "/p4.jpeg",
+      desc: "Health Supplement  For Adults.",
+      category: "Wellness Foods",
     },
   ];
-
   const [selectedCategory, setSelectedCategory] = useState("All Products");
   const [openModal, setOpenModal] = useState(false);
 
@@ -50,7 +53,7 @@ export default function ProductsPage() {
       <section className="bg-linear-to-r from-green-50 to-white py-16 mb-4">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           {/* Header */}
-          <div>
+          <div className="max-w-5xl">
             <h1 className="text-3xl md:text-4xl font-semibold text-black leading-tight">
               Get Products by Category
             </h1>
@@ -102,7 +105,7 @@ export default function ProductsPage() {
                       src={product.image}
                       alt={product.name}
                       fill
-                      className="object-cover"
+                      className="object-fit"
                     />
                   </div>
 

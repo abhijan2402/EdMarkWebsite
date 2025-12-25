@@ -14,33 +14,39 @@ const categories = [
 const products = [
   {
     id: 1,
-    name: "Herbal Protein Blend",
-    price: 29.99,
+    name: "Classic Cafe Black",
+    price: 18,
+    image: "/p1.jfif",
+    desc: "Starting Your Day with Vitality - Health Fit Classic Cafe Black.",
     category: "Fitness Supplements",
-    image: "/im.jpg",
   },
   {
     id: 2,
-    name: "Organic Immunity Boost",
-    price: 19.99,
-    category: "Herbal Nutrition",
-    image: "/hero.jpg",
+    name: "EDLIFE Chlorophyllin",
+    price: 75,
+    image: "/p2.jfif",
+    desc: "Introducing EDLIFE Chlorophyllin 240mg Capsule.",
+    category: "Fitness Supplements",
   },
   {
     id: 3,
-    name: "Daily Wellness Mix",
-    price: 14.99,
-    category: "Wellness Foods",
-    image: "/im.jpg",
+    name: "Aleo vera gel",
+    price: 699,
+    image: "/p3.jfif",
+    desc: "Aloe 10,000 & Probiotics Veg Capsules.",
+    category: "Herbal Nutrition",
   },
   {
     id: 4,
-    name: "Plant-Based Energy Powder",
-    price: 24.99,
-    category: "Fitness Supplements",
-    image: "/hero.jpg",
+    name: "Ensure",
+    price: 1099,
+    image: "/p4.jpeg",
+    desc: "Health Supplement  For Adults.",
+    category: "Wellness Foods",
   },
 ];
+
+
 
 export default function ProductsPage() {
   const [search, setSearch] = useState("");
@@ -113,7 +119,7 @@ export default function ProductsPage() {
                       src={product.image}
                       alt={product.name}
                       fill
-                      className="object-cover"
+                      className="object-fit"
                     />
                   </div>
 

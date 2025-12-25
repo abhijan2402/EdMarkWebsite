@@ -3,31 +3,31 @@ import Image from "next/image";
 const products = [
   {
     id: 1,
-    name: "Plant Protein Blend",
-    price: "$1,299",
-    image: "/hero.jpg",
-    desc: "Clean plant-based protein for daily strength.",
+    name: "Classic Cafe Black",
+    price: "$18",
+    image: "/p1.jfif",
+    desc: "Starting Your Day with Vitality - Health Fit Classic Cafe Black.",
   },
   {
     id: 2,
-    name: "Herbal Immunity Boost",
-    price: "$899",
-    image: "/im.jpg",
-    desc: "Natural herbs to support immune health.",
+    name: "EDLIFE Chlorophyllin",
+    price: "$75",
+    image: "/p2.jfif",
+    desc: "Introducing EDLIFE Chlorophyllin 240mg Capsule.",
   },
   {
     id: 3,
-    name: "Daily Wellness Mix",
+    name: "Aleo vera gel",
     price: "$699",
-    image: "/hero.jpg",
-    desc: "Essential nutrients for everyday vitality.",
+    image: "/p3.jfif",
+    desc: "Aloe 10,000 & Probiotics Veg Capsules.",
   },
   {
     id: 4,
-    name: "Weight Care Formula",
+    name: "Ensure",
     price: "$1,099",
-    image: "/im.jpg",
-    desc: "Balanced nutrition to support weight goals.",
+    image: "/p4.jpeg",
+    desc: "Health Supplement  For Adults.",
   },
 ];
 
@@ -61,12 +61,12 @@ export default function FeaturedProducts() {
               hover:shadow-xl transition-all duration-300"
             >
               {/* Image */}
-              <div className="relative h-48 bg-gray-200">
+              <div className="relative h-50 bg-gray-200">
                 <Image
                   src={product.image}
                   alt={product.name}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300 text-gray-600"
+                  className="object-fit group-hover:scale-105 transition-transform duration-300 text-gray-600"
                 />
               </div>
 
